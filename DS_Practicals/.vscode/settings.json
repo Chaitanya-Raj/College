@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "iostream": "cpp"
+    },
+    "code-runner.runInTerminal": true,
+    "code-runner.executorMap": {
+        "cpp": "g++ $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+    },
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.cursorStyle": "line",
+    "code-runner.fileDirectoryAsCwd": true
+}
