@@ -1,5 +1,5 @@
 #include<iostream>
-#include<conio.h>
+//#include<conio.h>
 #include<math.h>
 using namespace std;
 class set
@@ -22,17 +22,17 @@ class set
 
 void set::input()
 {
-	cout<<"enter the size of array"<<endl;
+	cout<<"Enter the size of array"<<endl;
 	cin>>size;
 	ar=new int[size];
-	cout<<"enter the array elements"<<endl;
+	cout<<"Enter the array elements"<<endl;
 	for(int i=0;i<size;i++)
 	cin>>ar[i];
 }
 
 void set::display()
 {
-    cout<<"the given set is {";
+    cout<<"The given set is {";
     for(int i=0;i<size;i++)
     {
         if(i == 0)
@@ -71,11 +71,11 @@ void set::powerset()
 {
     int count,temp;
     count=pow(2,size);
-    cout<<"{ {},";
+    cout<<"{}";
     for(int i=1;i<count;i++)
     {
         temp=i;
-        cout<<"{";
+        cout<<"\n{";
         for(int j=0;j<size;j++)
         {
             if(temp&1)
@@ -84,7 +84,6 @@ void set::powerset()
         }
         cout<<"\b}";
     }
-	cout<<" }";
 }
 
 int set::ismember()
@@ -121,16 +120,16 @@ int main()
 			case 1: a.powerset();
 				    break;
 			case 2: if(a.ismember())
-                        cout<<"given element belong to set "<<endl;
+                        cout<<"\nGiven element belong to set "<<endl;
                     else
-                        cout<<"given element not belong to set"<<endl;
+                        cout<<"\nGiven element not belong to set"<<endl;
                         break;
 			case 3:exit(0);
 			
-			default:cout<<"wrong choice!!..";
+			default:cout<<"Wrong choice!!..";
 				    break;
 		}
-        cout<<endl<<"Do you want to enter more"<<endl;
+        cout<<endl<<"Continue operations?"<<endl;
         cin>>ch1;
     }while((ch1=='y')||(ch1=='Y'));
     return 0;

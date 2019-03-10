@@ -1,5 +1,5 @@
 #include<iostream>
-#include<conio.h>
+//#include<conio.h>
 #include<math.h>
 using namespace std;
 class set
@@ -267,7 +267,7 @@ int main()
     do
     {
     cout<<endl<<"Enter your choice"<<endl;
-    cout<<"1.Union"<<endl<<"2.Intersection"<<endl<<"3.subset"<<endl<<"4.Complement"<<endl<<"5.cartesian product"<<endl<<"6.Symmetric differnce"<<endl<<"7.Differnce"<<endl<<"8.exit"<<endl;
+    cout<<endl<<"1.Union"<<endl<<"2.Intersection"<<endl<<"3.Subset"<<endl<<"4.Complement"<<endl<<"5.Cartesian Product"<<endl<<"6.Symmetric Difference"<<endl<<"7.Difference"<<endl<<"0.Exit"<<endl;
     cin>>ch;
     switch(ch)
     {
@@ -286,7 +286,7 @@ int main()
                     else
                         cout<<"A and B are not subset of each other"<<endl;
                 break;
-        case 4: cout<<"what you want to find complement of 1)A or 2)B"<<endl;
+        case 4: cout<<"do you want to find complement of 1)A or 2)B ?"<<endl;
                 cin>>ch2;
                 if(ch2==1)
                     e.complement(a);
@@ -303,7 +303,7 @@ int main()
                 break;
         case 6: f.symdif(a,b);
                 break;
-        case 7: cout<<"Enter your choice "<<"1.A-B"<<endl<<"B-A"<<endl;
+        case 7: cout<<"Enter your choice "<<endl<<"1.A-B"<<endl<<"2.B-A"<<endl;
                 cin>>ch3;
                 if(ch3==1)
                 {
@@ -316,11 +316,12 @@ int main()
                 else 
                     cout<<"Wrong choice ";
                 break;
+        case 0: exit(0);
         default:cout<<"wrong choice";
                 break;
     }
 
-    cout<<"Do you want to enter more"<<endl;
+    cout<<"Do you want to continue operations?"<<endl;
     cin>>ch1;
     }while((ch1=='y')||(ch1=='Y'));
     return 0;

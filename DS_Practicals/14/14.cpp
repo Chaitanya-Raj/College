@@ -1,34 +1,51 @@
 #include<iostream>
-#include<cmath>
 using namespace std;
 
-int Ta(int n)
+class Alg
 {
-    if(n==0)
-        return 1;
-    else
-        return (n+Ta(n-1));
+	int n;
+	public:
+		Alg();
+		Alg(int);
+		int algo1(int);
+		int algo2(int);
+		int algo3(int);
+};
+
+Alg::Alg()
+{
+	n=0;
 }
 
-int Tb(int n)
+Alg::Alg(int x)
 {
-    if(n==0)
-        return 1;
-    else
-        return (pow(n,2)+Tb(n-1));
+	n=x;
 }
 
-int Tc(int n)
+int Alg::algo1(int n)
 {
-    if(n==0)
-        return 1;
-    else
-        return (n+(2*Tc(n/2)));
+	if(n==0)
+		return 1;
+	return algo1(n-1)+n;
+}
+
+int Alg::algo2(int n)
+{
+	if(n==0)
+		return 1;
+	return algo2(n-1)+n*n;
+}
+
+int Alg::algo3(int n)
+{
+	if(n==1)
+		return 1;
+	return 2*algo3(n/2)+n;
 }
 
 int main()
 {
-    int n,c;
+	int n,c,r;
 
     cout<<"VALUES OF RECURRENCE RELATIONS :"<<endl<<endl;
     cout<<"\t 1. T(n)= T(n-1)+n       ,T(0)=1 "<<endl;
@@ -37,28 +54,21 @@ int main()
 
     cout<<"\nEnter your choice(between 1,2,3) :	";
     cin>>c;
-    if((c>3)||(c<=0))
-        cout<<"\nInvalid choice!!";
-    cout<<"\nEnter the value for n : ";
-    cin>>n;
-
-    if(c==1)
-    {
-        int r=Ta(n);
-        cout<<"\nResult : "<<r<<endl;
-    }
-
-    else if(c==2)
-    {
-        int r=Tb(n);
-        cout<<"\nResult : "<<r<<endl;
-    }
-
-    else if(c==3)
-    {
-        int r=Tc(n);
-        cout<<"\nResult : "<<r<<endl;
-    }
-
-    return 0;	
+	cout<<"\nEnter the value of n :";
+	cin>>n;
+	Alg x(n);
+	switch(c)
+	{
+		case 1:	r=x.algo1(n);
+        		cout<<"\nResult : "<<r<<endl;
+				break;
+		case 2:	r=x.algo2(n);
+        		cout<<"\nResult : "<<r<<endl;
+				break;
+		case 3:	r=x.algo3(n);
+        		cout<<"\nResult : "<<r<<endl;
+				break;
+		default:cout<<"\nInvalid choice!!";
+	}
+    return 0;
 }
