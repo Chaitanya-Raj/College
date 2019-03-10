@@ -1,181 +1,139 @@
 #include<iostream>
+//#include<conio.h>
+#include<math.h>
 using namespace std;
-class set
-{
-    int **ar;
-    int size;
-    public:
-    void setsize();
-    void enter();
-    int reflexive();
-    void display();
-    bool symmetric();
-    int antisym();
-    int transitive();
+
+class Relation{
+	int l,set[10],rel[10][10];
+	public:
+		bool rflag,sflag,aflag,tflag;
+		void input();
+		void printMatrix();
+		void reflexive();
+		void symmetric();
+		void anti_symmetric();
+		void transitive();
 };
 
-void set::setsize()
+void Relation::input()
 {
-    cout<<"Enter the size "<<endl;
-    cin>>size;
-    ar=new int*[size];
-    for(int i=0;i<size;i++)
-    {
-        ar[i]=new int[size];
-    }
-    for(int i=0;i<size;i++)
-        for(int j=0;j<size;j++)
-        {
-            ar[i][j]=0;
-        }
+	cout<<"\nEnter the set size : "<<endl;
+	cin>>l;
+	cout<<"\nEnter the set elements :\n";
+	for(int i=0;i<l;i++)
+	{
+		cin>>set[l];
+	}
+	cout<<"\nEnter the relation matrix elements :\n";
+	for(int i=0;i<l;i++)
+	{
+		for(int j=0;j<l;j++)
+			cin>>rel[i][j];
+	}
 }
 
-void set::enter()
+void Relation::printMatrix()
 {
-    int a,b,n;
-    cout<<"Enter the no of relations"<<endl;
-    cin>>n;
-    for(int i=0;i<n;i++)
-    {
-        cout<<"enter the element"<<endl;
-        cin>>a>>b;
-        if((a==0)||(b==0)||(a>size)||(b>size))
-        {
-            cout<<"wrong choice"<<endl;
-            exit(0);
-        }
-        else
-        {
-            ar[a-1][b-1]=1;
-        }
-    }
-}      
-
-int set::reflexive()
-{
-    int flag=0;
-    for(int i=0;i<size;i++)
-    {
-        if(ar[i][i]==1)
-        {
-            flag=1;
-        }
-        else
-        {
-            flag=0;
-            break;
-        }
-    }
-    return flag;
+	cout<<"\n\n";
+	for(int i=0;i<l;i++)
+	{
+		cout<<"\n";
+		for(int j=0;j<l;j++)
+		{
+			cout<<"\t"<<rel[i][j];
+		}
+	}
+	cout<<"\n\n";
 }
 
-void set::display()
+void Relation::reflexive()
 {
-    cout<<"The relation in matrix form is "<<endl;
-    for(int i=0;i<size;i++)
-    {
-        for(int j=0;j<size;j++)
-        cout<<ar[i][j]<<" ";     
-        cout<<endl;
-    }
+	rflag=true;
+	for(int i=0;i<l;i++)
+	{
+		for(int j=0;j<l;j++)
+		{
+			if((i==j)&&(rel[i][j]!=1))
+				rflag=false;
+		}
+	}
+	if(rflag==true)
+	{
+		cout<<"\nThe relation is reflexive";
+	}
+	if(rflag==false)
+		cout<<"\nThe relation is not reflexive";
 }
 
-bool set::symmetric()
+void Relation::symmetric()
 {
-    int flag;
-    for(int i=0;i<size;i++)
-    {
-        for(int j=i+1;j<size;j++)
-        {
-            if((ar[i][j]!=ar[j][i]))
-            return false;
-            break;
-        }
-    }
-    return true;
+	sflag=true;
+	for(int i=0;i<l;i++)
+	{
+		for(int j=0;j<l;j++)
+		{
+			if(((rel[j][i]!=1)&&(rel[i][j]==1)))
+				sflag=false;
+		}
+	}
+	if(sflag==true)
+	{
+		cout<<"\nThe relation is symmetric";
+	}
+	if(sflag==false)
+		cout<<"\nThe relation is not symmetric";
 }
 
-int set:: antisym()
+void Relation::anti_symmetric()
 {
-    int flag=0;
-    for(int i=0;i<size;i++)
-    for(int j=i+1;j<size;j++)
-    {
-        if(((ar[i][j])&&(ar[j][i]))==1)
-        {
-            flag=1;
-            break;
-        }
-        else 
-        {
-            flag=0;
-        }
-    }
-    return flag;    
-}                                          
+	aflag=true;
+	for(int i=0;i<l;i++)
+	{
+		for(int j=0;j<l;j++)
+		{
+			if((rel[i][j]==1)&&(rel[j][i]==1)&&(i!=j))
+				aflag=false;
+		}
+	}
+	if(aflag==true)
+	{
+		cout<<"\nThe relation is anti-symmetric";
+	}
+	if(aflag==false)
+		cout<<"\nThe relation is not anti-symmetric";
+}
 
-int set::transitive()
+void Relation::transitive()
 {
-    int flag=1;
-    for(int i=0;i<size;i++)
-    {
-        for(int j=0;j<size;j++)
-        {
-            if(ar[i][j]==1)
-            {
-                for(int k=0;k<size;k++)
-                {
-                    if((ar[j][k]==1)&&(ar[i][k]!=1))
-                    flag=0;
-                }
-            }
-        }
-    }
-    return  flag;
+	tflag=true;
+	for(int i=0;i<l;i++)
+	{
+		for(int j=0;j<l;j++)
+		{
+			for(int k=0;k<l;k++)
+			{
+				if((rel[i][j]==1)&&(rel[j][k]==1)&&(rel[i][k]!=1))
+					tflag=false;
+			}
+		}
+	}
+	if(tflag==true)
+	{
+		cout<<"\nThe relation is transitive"<<endl;
+	}
+	if(tflag==false)
+		cout<<"\nThe relation is not transitive"<<endl;
 }
 
 int main()
 {
-    int ch;
-    char ch1;
-    set a;
-    a.setsize();
-    a.enter();
-    a.display();
-    cout<<"1.Reflexive"<<endl<<"2.Symmetric"<<endl<<"3.antisymmetric"<<endl<<"4.transitive"<<endl<<"5.exit()"<<endl;
-    do
-    {
-        cout<<"enter your choice ";
-        cin>>ch;
-        switch(ch)
-        {
-            case 1: if(a.reflexive())
-                        cout<<"the given relation is reflexive"<<endl;
-                    else
-                        cout<<"The given relation is not reflexive"<<endl;
-                    break;
-            case 2: if(a.symmetric())
-                        cout<<"The relation is symmetric"<<endl;
-                    else 
-                        cout<<"The relation is not symmetric"<<endl;
-                    break;
-            case 3: if(a.antisym())
-                        cout<<"The given relation is not antisymmetric"<<endl;
-                    else 
-                        cout<<"The given relation is  antisymmetric"<<endl;
-                    break;
-            case 4: if(a.transitive())
-                        cout<<"the given relation is transitive"<<endl;
-                    else
-                        cout<<"the given relation is not transitive"<<endl;   
-                    break;
-            case 5:exit(0);
-
-            default: cout<<"wrong choice"<<endl;
-                    break;
-        }
-        cout<<"Do you want to enter more "<<endl;
-        cin>>ch1;
-    }while((ch1=='y')||(ch1=='Y'));
-    return 0;
+	Relation r;
+	r.input();
+	r.printMatrix();
+	r.reflexive();
+	r.symmetric();
+	r.anti_symmetric();
+	r.transitive();
+	//getch();
+	return 0;
 }
