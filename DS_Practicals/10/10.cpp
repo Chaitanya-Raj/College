@@ -1,6 +1,6 @@
 
 #include<iostream>
-#include<conio.h>
+//#include<conio.h>
 using namespace std;
 
 void swap(int *a,int *b)
@@ -86,6 +86,6 @@ int main ()
         default:cout<<"wrong choice";
                     break;
     }                      
-    getch();
+    //getch();
 }
 

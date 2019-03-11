@@ -20,9 +20,9 @@ int main()
             Negx=!x;
             Negy=!y;
      
-        cout<<"\nx |y  |OR |AND|NOR|NAND|XOR|XNOR|Cond|Bicond|~x  |~y  "<<endl;
-        cout<<x<<" | "<<y<<" | "<<dis<<" | "<<con<<" | "<<NOR<<" | "<<NAND<<"  | ";
-        cout<<XORf<<" |"<<XNOR<<"   |"<<Cond<<"   |"<<Bicond<<"     |"<<Negx<<"   |"<<Negy<<endl;
+        cout<<"\n  x\t|  y\t|  OR\t|  AND\t|  NOR\t|  NAND\t|  XOR\t|  XNOR\t| Cond\t|Bicond\t|  ~x\t|  ~y\t"<<endl;
+        cout<<"  "<<x<<"\t|  "<<y<<"\t|  "<<dis<<"\t|  "<<con<<"\t|  "<<NOR<<"\t|  "<<NAND<<"\t|  ";
+        cout<<XORf<<"\t|  "<<XNOR<<"\t|  "<<Cond<<"\t|  "<<Bicond<<"\t|  "<<Negx<<"\t|  "<<Negy<<endl;
 
         cout<<"\ndo you want to continue(y/n)\n";
         cin>>ch;
