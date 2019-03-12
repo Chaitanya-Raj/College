@@ -1,4 +1,4 @@
-package a16;
+package p;
 import java.util.Scanner;
 class fibo1
 {

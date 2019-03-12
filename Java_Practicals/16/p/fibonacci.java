@@ -1,4 +1,4 @@
-package a16;
+package p;
 class fibonacci
 {
     int fibo(int num)
