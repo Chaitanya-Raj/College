@@ -149,6 +149,7 @@ void set::complement(set &a)
         else
             cout<<","<<p[i];
     }
+    cout<<"}"
 }
 
 void set::cartesian(set &b)
