@@ -9,6 +9,7 @@ public class tryBlocks {
             System.out.println("Input numbers to be operated on : ");
             a = sc.nextInt();
             b = sc.nextInt();
+            sc.close();
             try {
                 System.out.println(a + "/" + b + "=" + (a / b));
             } catch (Exception e) {
