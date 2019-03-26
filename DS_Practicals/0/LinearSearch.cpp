@@ -11,23 +11,23 @@ void Lsearch(int arr[],int n,int x)
 			index=i;
 	}
 	if(index>0)
-		cout<<"\nElement found at index "<<index;
+		System.out.println"\nElement found at index "<<index;
 	else
-		cout<<"\nElement not found";
+		System.out.println"\nElement not found";
 }
 
 int main()
 {
 	int num,size;
-	cout<<"\nEnter size of array : ";
+	System.out.println"\nEnter size of array : ";
 	cin>>size;
 	int y[size];
-	cout<<"\nEnter the elements : ";
+	System.out.println"\nEnter the elements : ";
 	for(int i=0;i<size;i++)
 	{
 		cin>>y[i];
 	}
-	cout<<"\nEnter element to be searched : ";
+	System.out.println"\nEnter element to be searched : ";
 	cin>>num;
 	Lsearch(y,size,num);
 	//getch();

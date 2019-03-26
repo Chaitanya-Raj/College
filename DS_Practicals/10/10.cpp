@@ -1,44 +1,47 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-void swap(int *a,int *b)
+int count = 0;
+
+void swap(int *a, int *b)
 {
-    int temp=*a;
-    *a=*b;
-    *b=temp;    
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
-void perm(int arr[],int s, int l)
+void perm(int arr[], int s, int l)
 {
-    if(s==l-1)
+    if (s == l - 1)
     {
-        for(int i=0;i<l;i++)
+        count++;
+        for (int i = 0; i < l; i++)
         {
-            cout<<" "<<arr[i];
+            cout << " " << arr[i];
         }
-        cout<<endl;
+        cout << endl;
     }
     else
     {
-        for(int i=s;i<l;i++)
+        for (int i = s; i < l; i++)
         {
-            swap(&arr[s],&arr[i]);
-            perm(arr,s+1,l);
-            swap(&arr[s],&arr[i]);
+            swap(&arr[s], &arr[i]);
+            perm(arr, s + 1, l);
+            swap(&arr[s], &arr[i]);
         }
     }
-    
 }
 
 int main()
 {
-    cout<<"Enter size of array : ";
+    cout << "Enter size of array : ";
     int n;
-    cin>>n;
+    cin >> n;
     int arr[n];
-    cout<<"\nEnter elements of array : \n";
-    for(int i=0;i<n;i++)
-        cin>>arr[i];
-    cout<<"\nThe permutations of the given array are\n";
-    perm(arr,0,n);
+    cout << "\nEnter elements of array : \n";
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    cout << "\n\n";
+    perm(arr, 0, n);
+    cout << "\nThe given array has " << count << " permutations\n";
 }
