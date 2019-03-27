@@ -1,14 +1,32 @@
 #include<iostream>
 using namespace std;
 
-void swap(int *a,int *b)
+class Perm
+{
+    public:
+        int n,arr[10];
+        void input();
+        void swap(int*,int*);
+        void perm(int[],int,int);
+};
+
+void Perm::input()
+{
+    cout<<"Enter size of array : ";
+    cin>>n;
+    cout<<"\nEnter elements of array : \n";
+    for(int i=0;i<n;i++)
+        cin>>arr[i];
+}
+
+void Perm::swap(int *a,int *b)
 {
     int temp=*a;
     *a=*b;
     *b=temp;    
 }
 
-void perm(int arr[],int s, int l)
+void Perm::perm(int arr[],int s, int l)
 {
     if(s==l-1)
     {
@@ -32,13 +50,8 @@ void perm(int arr[],int s, int l)
 
 int main()
 {
-    cout<<"Enter size of array : ";
-    int n;
-    cin>>n;
-    int arr[n];
-    cout<<"\nEnter elements of array : \n";
-    for(int i=0;i<n;i++)
-        cin>>arr[i];
+    Perm p;
+    p.input();
     cout<<"\nThe permutations of the given array are\n";
-    perm(arr,0,n);
+    p.perm(p.arr,0,p.n);
 }
