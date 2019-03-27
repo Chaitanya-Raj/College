@@ -2,7 +2,7 @@
 //#include<conio.h>
 using namespace std;
 
-int perm(int n,int r)
+int Permutation(int n,int r)
 {
     if(r>n)
         return 0;
@@ -11,7 +11,7 @@ int perm(int n,int r)
         if(r==0)
             return 1;
         else
-            return(n*perm(n-1,r-1));
+            return(n*Permutation(n-1,r-1));
     }
 }
 
@@ -32,13 +32,13 @@ int main()
     cin>>n;
     cout<<"Enter the value of r"<<endl;
     cin>>r;
-    cout<<"Enter your choice"<<endl<<"1.Permutation"<<endl<<"2.Combination"<<endl<<"0.Exit"<<endl;
+    cout<<"Enter your choice"<<endl<<"1.Permutationutation"<<endl<<"2.Combination"<<endl<<"0.Exit"<<endl;
     cin>>ch;
 
     switch(ch)
     {
-        case 1: a=perm(n,r);
-                cout<<"Permutation is "<<a<<endl;
+        case 1: a=Permutation(n,r);
+                cout<<"Permutationutation is "<<a<<endl;
                 break;
         case 2: b=comb(n,r);
                 cout<<"Combination is "<<b<<endl;

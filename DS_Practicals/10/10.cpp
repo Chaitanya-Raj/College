@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-class Perm
+class Permutation
 {
     public:
         int n,arr[10];
@@ -10,7 +10,7 @@ class Perm
         void perm(int[],int,int);
 };
 
-void Perm::input()
+void Permutation::input()
 {
     cout<<"Enter size of array : ";
     cin>>n;
@@ -19,14 +19,14 @@ void Perm::input()
         cin>>arr[i];
 }
 
-void Perm::swap(int *a,int *b)
+void Permutation::swap(int *a,int *b)
 {
     int temp=*a;
     *a=*b;
     *b=temp;    
 }
 
-void Perm::perm(int arr[],int s, int l)
+void Permutation::perm(int arr[],int s, int l)
 {
     if(s==l-1)
     {
@@ -45,13 +45,12 @@ void Perm::perm(int arr[],int s, int l)
             swap(&arr[s],&arr[i]);
         }
     }
-    
 }
 
 int main()
 {
-    Perm p;
+    Permutation p;
     p.input();
-    cout<<"\nThe permutations of the given array are\n";
+    cout<<"\nThe Permutations of the given array are\n";
     p.perm(p.arr,0,p.n);
 }
