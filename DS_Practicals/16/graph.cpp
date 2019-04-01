@@ -1,42 +1,72 @@
 #include<iostream>
 using namespace std;
 
-int main()
+
+class Graph
 {
-    bool flag=true;
-    cout<<"Enter the number of vertices : ";
-    int v;
-    cin>>v;
-    int adj[v][v];
-    cout<<"\nEnter the adjacency matrix : ";
-    for(int i=0;i<v;i++)
-    {
-        for(int j=0;j<v;j++)
+    public:
+        bool flag;
+        int v,adj[10][10];
+        void input()
         {
-            cin>>adj[i][j];
-        }
-    }
-    for(int i=0;i<v;i++)
-    {
-        for(int j=0;j<v;j++)
-        {
-            if(i==j)
+            cout<<"Enter the number of vertices : ";
+            cin>>v;
+            cout<<"\nEnter the adjacency matrix : ";
+            for(int i=0;i<v;i++)
             {
-                if(adj[i][j]!=0)
+                for(int j=0;j<v;j++)
                 {
-                    flag=false;
-                    break;
+                    cin>>adj[i][j];
                 }
             }
-            else if(adj[i][j]==0)
-            {
-                flag=false;
-                break;
-            }
         }
-    }
-    if(flag==true)
-        cout<<"\nComplete Graph";
-    else
-        cout<<"\nNot Complete Graph";
+
+        void display()
+        {
+            for(int i=0;i<v;i++)
+            {  
+                cout<<endl;
+                for(int j=0;j<v;j++)
+                {
+                    cout<<"\t"<<adj[i][j];
+                }
+            }
+            cout<<endl;
+        }
+
+        void check()
+        {
+            flag=true;
+            for(int i=0;i<v;i++)
+            {
+                for(int j=0;j<v;j++)
+                {
+                    if(i==j)
+                    {
+                        if(adj[i][j]!=0)
+                        {
+                            flag=false;
+                            break;
+                        }
+                    }
+                    else if(adj[i][j]==0)
+                    {
+                        flag=false;
+                        break;
+                    }
+                }
+            }
+            if(flag==true)
+                cout<<"\nComplete Graph";
+            else
+                cout<<"\nNot Complete Graph";
+        }
+};
+
+int main()
+{
+    Graph g;
+    g.input();
+    g.display();
+    g.check();   
 }

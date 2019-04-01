@@ -10,10 +10,10 @@ int factorial(int n)
         return 1;
 }
 
-void permutation(int n,int r)
+void Permutationutation(int n,int r)
 {
 	double result=(factorial(n)/factorial(n-r));
-	cout<<"\nPermutation\n";
+	cout<<"\nPermutationutation\n";
 	cout<<n<<"P"<<r<<" = "<<result<<"\n\n";
 }
 
@@ -34,7 +34,7 @@ int main()
 	int r;
 	cin>>r;
 	cout<<"\n\n";
-	permutation(n,r);
+	Permutationutation(n,r);
 	combination(n,r);
 	//getch();
 	return 0;
