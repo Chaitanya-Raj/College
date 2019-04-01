@@ -33,8 +33,10 @@ int main()
     if(sum%2==0)
     {
         cout<<"\nIt has a Euler Circuit";
-        if(odd==2)
-            cout<<"\nIt has a Euler Path";
+    }
+    else if(odd==2)
+    {
+        cout<<"\nIt has a Euler Path";
     }
     else
     {
