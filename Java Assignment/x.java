@@ -19,15 +19,19 @@ class x {
 
         System.out.println("\n THE ADJANCY MATRIX : \n ");
         for (int m = 0; m < v; m++) {
-            for (int n = 0; n < v; n++)
+            for (int n = 0; n < v; n++) {
                 System.out.print(arr[m][n] + " ");
+            }
             System.out.println();
         }
+        int odd = 0;
 
         for (i = 0; i < v; i++) {
             sum = 0;
             for (j = 0; j < v; j++) {
                 sum += arr[i][j];
+                if (adj[i][j] % 2 == 1)
+                    odd++;
             }
             arr1[i] = sum;
         }
@@ -36,21 +40,13 @@ class x {
             System.out.println("\n THE DEGREE OF " + (char) (97 + i) + " -- " + arr1[i]);
         }
 
-        for (i = 0; i < v; i++) {
-            if ((arr1[i] % 2) != 0) {
-                // System.out.println("\n There is no euler circuit exist \n");
-                // flag = 1;
-                c++;
-            }
+        if (sum % 2 == 0 && odd == 0) {
+            System.out.println("\nIt has a Euler Circuit");
+        } else if (odd == 2) {
+            System.out.println("\nIt has a Euler Path");
+        } else {
+            System.out.println("\nIt has neither Euler Path nor Circuit");
         }
 
-        // if (flag == 0)
-        // System.out.println("\n There is euler circuit \n ");
-
-        if (c == 2)
-            System.out.println("\n  There is a euler path \n ");
-        else
-            System.out.println("\n There is no euler path \n");
-        sc.close();
     }
 }
