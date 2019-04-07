@@ -1,13 +1,24 @@
 #include <iostream>
 using namespace std;
 
-int main()
+class graph
+{
+    int sum = 0;
+    int odd = 0;
+    int v;
+    int adj[10][10];
+
+  public:
+    void euler();
+};
+
+void graph::euler()
 {
     cout << "Enter the number of vertices : ";
-    int v;
+
     cin >> v;
     cout << "Enter the adjacency matrix :" << endl;
-    int adj[v][v];
+
     for (int i = 0; i < v; i++)
     {
         for (int j = 0; j < v; j++)
@@ -16,8 +27,7 @@ int main()
         }
     }
     cout << "\nThe adjacent matrix is \n";
-    int sum = 0;
-    int odd = 0;
+
     for (int i = 0; i < v; i++)
     {
         cout << endl;
@@ -42,6 +52,11 @@ int main()
     {
         cout << "\nIt has neither Euler Path nor Circuit";
     }
+}
 
+int main()
+{
+    graph g;
+    g.euler();
     return 0;
 }
